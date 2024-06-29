@@ -98,7 +98,7 @@ const TeamPage = () => {
             <div className='flex flex-col gap-2 text-center'>
               <h1 className='text-3xl text-black font-bold'>Kevin Garjan</h1>
               <h2 className='text-2xl text-black'>
-                Senior Electrical Designand Project engineer
+                Electrical Designand Project engineer
               </h2>
             </div>
             <p
@@ -107,7 +107,7 @@ const TeamPage = () => {
                 lineHeight: "2",
               }}
             >
-              A dedicated power electrical system engineer with over 10 years of
+              A dedicated power electrical system engineer with over 8 years of
               hands-on experience in the construction electrical building
               industry providing components of electrical building services
               design, documentation, and construction supervision to a wide

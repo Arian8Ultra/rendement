@@ -50,7 +50,7 @@ export default function Home() {
 
             {/* add line height */}
             <div className='text md:w-1/2 p-10 text-lg md:text-[32px] h-full text-gray-500 leading-loose'>
-              Rendement Group consulting was founded in 2023 after years of collaboration of its
+              Rendement Group consulting was founded in 2021 after years of collaboration of its
               members with consultancy and construction firms of high caliber in
               different countries. Our team is comprised of passionate
               professionals with vast experience in a range of fields.
@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='bg-white w-full scroll-snap-align-start mt-10'>
+      {/* <section className='bg-white w-full scroll-snap-align-start mt-10'>
         <div className='flex flex-col items-center w-full'>
           <h1 className='text-2xl md:text-5xl font-bold text-green-500 p-5'>
             Goals
@@ -124,7 +124,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <footer className='flex flex-col items-center justify-center w-full p-10 bg-slate-700'>
         <h1 className='text-[50px] font-bold text-white'>RENDEMENT GROUP</h1>

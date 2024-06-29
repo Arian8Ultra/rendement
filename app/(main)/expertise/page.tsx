@@ -21,8 +21,8 @@ export default async function ExpertisePage() {
           backgroundClip: "border-box",
         }}
       >
-        <Accordion className="bg-opacity-70 bg-white rounded-xl">
-        <AccordionSummary
+        <Accordion className='bg-opacity-70 bg-white rounded-xl'>
+          <AccordionSummary
             // expandIcon={<ExpandMoreIcon />}
             aria-controls='panel1a-content'
             id='panel1a-header'
@@ -43,8 +43,8 @@ export default async function ExpertisePage() {
                   available in the field.
                 </p>
                 <p className='first-letter:ms-3'>
-                  At Rendement Group consulting, we make the world smarter, more connected
-                  and more sustainable.
+                  At Rendement Group consulting, we make the world smarter, more
+                  connected and more sustainable.
                 </p>
                 <h3 className='font-bold text-2xl first-letter:text-5xl first-letter:ms-3'>
                   Daily challenges to realize creative solutions.
@@ -78,7 +78,10 @@ export default async function ExpertisePage() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion className="bg-opacity-70 bg-white rounded-xl">
+
+
+        
+        <Accordion className='bg-opacity-70 bg-white rounded-xl'>
           <AccordionSummary
             // expandIcon={<ExpandMoreIcon />}
             aria-controls='panel1a-content'
@@ -150,7 +153,10 @@ export default async function ExpertisePage() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion className="bg-opacity-70 bg-white rounded-xl">
+
+
+
+        <Accordion className='bg-opacity-70 bg-white rounded-xl'>
           <AccordionSummary
             // expandIcon={<ExpandMoreIcon />}
             aria-controls='panel1a-content'
@@ -159,27 +165,57 @@ export default async function ExpertisePage() {
           >
             <h2 className='text text-3xl font-bold'>OUR SERVICES</h2>
           </AccordionSummary>
-          <AccordionDetails className="bg-transparent">
+          <AccordionDetails className='bg-transparent'>
             <div className='grid md:grid-cols-2'>
               <div className='flex flex-col justify-evenly gap-1 p-8 *:text-xl text-pretty'>
                 <p className='first-letter:ms-3'>
-                  If you are looking for the most efficient way to accomplish
-                  your BIM documentation in new construction, and even an
-                  electrical design and coordination approach, Rendement Group consulting
-                  Pty might best fit your project. We can serve as your single
-                  source for managing all parties involved in the process with
-                  MEP virtual construction services. From small projects to
-                  complex processes, according to timetables and keeping costs
-                  under control, we can supervise electrical installations and
-                  commissioning.
+                  At Rendement Group, we offer a wide range of services,
+                  including planning, engineering, design and consultancy, and
+                  project management services. We work collaboratively with
+                  owners and developers to understand their project goals and
+                  create sustainable solutions to meet them.
                 </p>
                 <p className='first-letter:ms-3'>
-                  In addition, with a strong resolution based on hands-on
-                  experience, we are able to deliver a wide range of projects in
-                  power electrical systems for the building industry such as;
-                  residential, commercial, data center, and sports with an
-                  energy-efficient approach.
+                  Most projects require a range of expertise and technology, and
+                  as a multi-discipline consulting engineering firm, Rendement
+                  can provide a wide variety of engineering and design services.
+                  Our proficiency and experience in consulting, and engineering,
+                  provide our clients with innovative and diversified solutions
+                  in MEP fields. We have broad expertise in the building
+                  mechanical and electrical fields, including:
                 </p>
+                <ul className='list-disc'>
+                  <li className='font-bold text-2xl  first-letter:ms-3'>
+                    BIM and construction documentation
+                  </li>
+                  <li className='font-bold text-2xl  first-letter:ms-3'>
+                    Electrical & design coordination
+                  </li>
+                  <li className='font-bold text-2xl  first-letter:ms-3'>
+                    MEP virtual construction services (Revit modeling)
+                  </li>
+                  <li className='font-bold text-2xl l first-letter:ms-3'>
+                    MEP equipment estimation via REVIT
+                  </li>
+                  <li className='font-bold text-2xl  first-letter:ms-3'>
+                    Supervise the electrical installation and commissioning
+                  </li>
+                  <li className='font-bold text-2xl  first-letter:ms-3'>
+                    As built drawing
+                  </li>
+                  {/* new lsit item for additinal details */}
+                  
+
+
+
+                  
+
+
+
+
+
+
+                </ul>
               </div>
               <Image
                 src={"/img/_e23d4acd-97ba-4d56-a7f6-ede4eeab7219.jpeg"}
