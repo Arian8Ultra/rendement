@@ -25,3 +25,21 @@ model Mail {
   userEmail String
   userPhone String?
 }
+
+model Category {
+  id   String @id @default(cuid())
+  name String
+  enName String
+  Blog Blog[]
+}
+
+model Blog {
+  id         String   @id @default(cuid())
+  title      String
+  body       String
+  createdAt  DateTime @default(now())
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  userEmail  String
+  userPhone  String?
+}
