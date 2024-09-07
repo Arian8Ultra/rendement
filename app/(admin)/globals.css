@@ -2,37 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
-
 @font-face {
   font-family: 'Product Sans';
   font-style: normal;
   font-weight: 100 700;
   font-display: swap;
-  src: url('/public/fonts/Product\ Sans\ Regular.ttf') format('truetype');
+  src: url('/fonts/ProductSansRegular.ttf') format('truetype');
 }
 
 
@@ -41,7 +16,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/public/fonts/Product\ Sans\ Bold.ttf') format('truetype');
+  src: url('/fonts/ProductSansBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -49,7 +24,7 @@
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url('/public/fonts/Product\ Sans\ Italic.ttf') format('truetype');
+  src: url('/fonts/ProductSansItalic.ttf') format('truetype');
 }
 
 
@@ -68,6 +43,30 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   font-family: 'Product Sans';
+}
+
+@media print {
+	body {
+		margin: 0 !important;
+	}
+}
+
+.main-container {
+	font-family: 'Lato';
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ck-content {
+	font-family: 'Lato';
+	line-height: 1.6;
+	word-break: break-word;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+	min-width: 795px;
+	max-width: 795px;
 }
 
 
