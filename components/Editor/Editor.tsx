@@ -51,9 +51,11 @@ import {
 
 import "ckeditor5/ckeditor5.css";
 
-import "./App.css";
-
-export default function App() {
+interface Props {
+  content: string;
+  setContent: (content: string) => void;
+}
+export default function App({ content, setContent }: Props) {
   const editorContainerRef = useRef(null);
   const editorRef = useRef(null);
   const [isLayoutReady, setIsLayoutReady] = useState(false);
@@ -251,8 +253,21 @@ export default function App() {
           <div className="editor-container__editor">
             <div ref={editorRef}>
               {isLayoutReady && (
-                // @ts-ignore
-                <CKEditor editor={ClassicEditor} config={editorConfig} />
+                <CKEditor
+                  editor={ClassicEditor}
+                  // @ts-ignore
+                  config={editorConfig}
+                  data={content}
+                  onReady={(editor) => {
+                    // You can store the "editor" and use when it is needed.
+                    console.log("Editor is ready to use!", editor);
+                  }}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    console.log({ event, editor, data });
+                    setContent(data);
+                  }}
+                />
               )}
             </div>
           </div>

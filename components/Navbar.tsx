@@ -39,7 +39,7 @@ const Navbar = ({ Categories }: Props) => {
       className={`sticky ${
         isScrolled && isMd
           ? "w-fit top-2 mx-auto rounded-2xl p-3"
-          : "top-0 left-0 right-0 w-full p-1 mx-0"
+          : "top-0 left-0 right-0 w-full p-3 mx-0"
       } z-50 duration-300 ${
         isScrolled
           ? "bg-black bg-opacity-70 "
@@ -52,7 +52,7 @@ const Navbar = ({ Categories }: Props) => {
         backdropFilter: `blur(${scrollHeight / 20}px)`,
       }}
     >
-      <div className="flex items-center justify-between w-full h-full z-20">
+      <div className="flex items-center justify-between w-full h-full z-20 gap-10">
         <div className="flex gap-2 items-center">
           <Logo className="w-[250px] h-[60px] fill-white" />
         </div>
@@ -70,7 +70,7 @@ const Navbar = ({ Categories }: Props) => {
               key={category.id}
               title={category.name}
               icon={<BiWrench />}
-              href={`/category/${category.enName}`}
+              href={`/category/${category.enName}/${category.id}`}
             />
           ))}
           <NavLinks
