@@ -40,6 +40,4 @@ model Blog {
   createdAt  DateTime @default(now())
   categoryId String
   category   Category @relation(fields: [categoryId], references: [id])
-  userEmail  String
-  userPhone  String?
 }
