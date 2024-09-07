@@ -7,30 +7,30 @@ export default async function EmailsPage() {
   return (
     <div>
       {/* a table of mails */}
-      <table className='w-full bg-white shadow-md rounded my-6'>
+      <table className="w-full bg-white shadow-md my-6 rounded-xl overflow-hidden">
         <thead>
-          <tr>
-            <th className='py-2 px-4 bg-gray-800 text-white font-semibold'>
+          <tr className="*:p-4">
+            {/* <th className="py-2 px-4 bg-gray-800 text-white font-semibold">
               Id
-            </th>
-            <th className='py-2 px-4 bg-gray-800 text-white font-semibold'>
+            </th> */}
+            <th className="py-2 px-4 bg-gray-800 text-white font-semibold">
               Subject
             </th>
-            <th className='py-2 px-4 bg-gray-800 text-white font-semibold'>
+            <th className="py-2 px-4 bg-gray-800 text-white font-semibold">
               Email
             </th>
-            <th className='py-2 px-4 bg-gray-800 text-white font-semibold'>
+            <th className="py-2 px-4 bg-gray-800 text-white font-semibold">
               Phone
             </th>
-            <th className='py-2 px-4 bg-gray-800 text-white font-semibold'>
+            <th className="py-2 px-4 bg-gray-800 text-white font-semibold">
               Message
             </th>
-            <th className='py-2 px-4 bg-gray-800 text-white font-semibold'>
+            <th className="py-2 px-4 bg-gray-800 text-white font-semibold">
               Date
             </th>
           </tr>
         </thead>
-        <tbody className='text-center'>
+        <tbody className="text-center">
           {mails.map(
             (mail: {
               id: string;
@@ -40,13 +40,13 @@ export default async function EmailsPage() {
               userEmail: string;
               userPhone: string | null;
             }) => (
-              <tr key={mail.id}>
-                <td className='py-2 px-4 border-b'>{mail.id}</td>
-                <td className='py-2 px-4 border-b'>{mail.subject}</td>
-                <td className='py-2 px-4 border-b'>{mail.userEmail}</td>
-                <td className='py-2 px-4 border-b'>{mail.userPhone}</td>
-                <td className='py-2 px-4 border-b'>{mail.body}</td>
-                <td className='py-2 px-4 border-b'>
+              <tr className="*:p-4" key={mail.id}>
+                {/* <td className="py-2 px-4 border-b">{mail.id}</td> */}
+                <td className="py-2 px-4 border-b">{mail.subject}</td>
+                <td className="py-2 px-4 border-b">{mail.userEmail}</td>
+                <td className="py-2 px-4 border-b">{mail.userPhone}</td>
+                <td className="py-2 px-4 border-b">{mail.body}</td>
+                <td className="py-2 px-4 border-b">
                   {new Date(mail.createdAt).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
@@ -56,7 +56,7 @@ export default async function EmailsPage() {
                   })}
                 </td>
               </tr>
-            ),
+            )
           )}
         </tbody>
       </table>
