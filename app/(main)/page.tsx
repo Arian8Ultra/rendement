@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className='flex min-h-screen flex-col items-center justify-between scroll-snap-type-y smooth-scroll'>
       <header className='w-full scroll-snap-align-start'>
-        <div className='flex flex-col items-center justify-center w-full relative h-[90dvh] md:h-[100dvh]'>
+        <div className='flex flex-col items-center justify-center w-full relative h-[90dvh] md:h-[90dvh]'>
           <Image
             src={"/img/_e23d4acd-97ba-4d56-a7f6-ede4eeab7219.jpeg"}
             alt='Picture of the author'
@@ -21,8 +21,8 @@ export default function Home() {
             blurDataURL=' '
           />
 
-          <div className='absolute bottom-0 left-0 right-0 w-full bg-black bg-opacity-70 z-10 p-20 backdrop-blur-lg'>
-            <h2 className='text-pretty md:text-5xl font-bold text-white md:w-1/2 text-center md:text-center mx-auto'style={{
+          <div className='absolute bottom-0 left-0 right-0 w-full bg-black bg-opacity-70 z-10 p-20 py-10 backdrop-blur-lg'>
+            <h2 className='text-pretty md:text-4xl font-bold text-white text-center md:text-justify md:w-3/4'style={{
               lineHeight: '1.5'
             }}>
             Delivering Creative, Sustainable-Solutions in A Challenging World Is What We Think Every Day
