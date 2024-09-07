@@ -1,15 +1,18 @@
 "use client";
+import { Category } from "@prisma/client";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { BiSolidPhoneCall, BiWrench } from "react-icons/bi";
 import { GoHomeFill } from "react-icons/go";
-import { RiTeamFill, RiInformationFill } from "react-icons/ri";
+import { RiTeamFill } from "react-icons/ri";
 import NavLinks from "./NavLinks";
-import { TbTriangleFilled } from "react-icons/tb";
-import Image from "next/image";
 import { Logo } from "./svg";
-import { usePathname } from "next/navigation";
+import { useMediaQuery } from "@mui/material";
 
-const Navbar = () => {
+interface Props {
+  Categories: Category[];
+}
+const Navbar = ({ Categories }: Props) => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [scrollHeight, setScrollHeight] = React.useState(0);
   const path = usePathname();
@@ -29,10 +32,15 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const isMd = useMediaQuery("(min-width:768px)");
   return (
     <nav
-      id='navbar'
-      className={`sticky top-0 left-0 right-0 w-full p-6 z-50 duration-300 ${
+      id="navbar"
+      className={`sticky ${
+        isScrolled && isMd
+          ? "w-fit top-2 mx-auto rounded-2xl p-3"
+          : "top-0 left-0 right-0 w-full p-1 mx-0"
+      } z-50 duration-300 ${
         isScrolled
           ? "bg-black bg-opacity-70 "
           : path === "/"
@@ -44,39 +52,33 @@ const Navbar = () => {
         backdropFilter: `blur(${scrollHeight / 20}px)`,
       }}
     >
-      <div className='flex flex-col md:flex-row items-center justify-between w-full h-full z-20'>
-        <div className='flex gap-2 items-center'>
-          <Logo className='w-[300px] h-[70px] fill-white' />
-          {/* <TbTriangleFilled className='text-white text-lg md:text-[50px]' />
-          <h1 className=' text-lg md:text-[50px] font-bold text-white'>
-            RENDEMENT GROUP
-          </h1> */}
+      <div className="flex items-center justify-between w-full h-full z-20">
+        <div className="flex gap-2 items-center">
+          <Logo className="w-[250px] h-[60px] fill-white" />
         </div>
-        {/* if a link is hoverd scale it to 150 */}
-        <nav className='flex items-center justify-between md:text-xl *:duration-300 *:whitespace-nowrap'>
-          <NavLinks title='Home' icon={<GoHomeFill />} href='/' />
-          <NavLinks title='Our Team' icon={<RiTeamFill />} href='/team' />
+        <div className="flex items-center justify-between md:text-xl *:duration-300 *:whitespace-nowrap">
+          <NavLinks title="Home" icon={<GoHomeFill />} href="/" />
+          <NavLinks title="Our Team" icon={<RiTeamFill />} href="/team" />
           <NavLinks
-            title='Our Expertise'
+            title="Our Expertise"
             icon={<BiWrench />}
-            href='/expertise'
+            href="/expertise"
           />
+          <NavLinks title="Our Projects" icon={<BiWrench />} href="/projects" />
+          {Categories.map((category: Category) => (
+            <NavLinks
+              key={category.id}
+              title={category.name}
+              icon={<BiWrench />}
+              href={`/category/${category.enName}`}
+            />
+          ))}
           <NavLinks
-            title='Our Projects'
-            icon={<BiWrench />}
-            href='/projects'
-          />
-          {/* <NavLinks
-            title='About Us'
-            icon={<RiInformationFill />}
-            href='/about'
-          /> */}
-          <NavLinks
-            title='Contact Us'
+            title="Contact Us"
             icon={<BiSolidPhoneCall />}
-            href='/contact'
+            href="/contact"
           />
-        </nav>
+        </div>
       </div>
     </nav>
   );
