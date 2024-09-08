@@ -40,7 +40,7 @@ export default async function CategoriesPagePage() {
                 {prisma?.category
                   ? (
                       prisma.category.findUnique({
-                        where: { id: blog.categoryId },
+                        where: { id: blog.categoryId || "" },
                       }) as unknown as Category
                     )?.name
                   : "No category"}

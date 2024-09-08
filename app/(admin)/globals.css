@@ -65,8 +65,8 @@ p {
 }
 
 .editor-container_classic-editor .editor-container__editor {
-	min-width: 795px;
-	max-width: 795px;
+	min-width: 200px;
+	max-width: 100%;
 }
 
 

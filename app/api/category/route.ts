@@ -81,6 +81,22 @@ export async function DELETE(request: Request) {
   const { id } = await request.json();
   const prisma = new PrismaClient();
   try {
+    // update blogs that have this category
+    const blogs = await prisma.blog.findMany({
+      where: {
+        categoryId: id,
+      },
+    });
+    for (const blog of blogs) {
+      await prisma.blog.update({
+        where: {
+          id: blog.id,
+        },
+        data: {
+          categoryId: null,
+        },
+      });
+    }
     const category = await prisma.category.delete({
       where: {
         id,

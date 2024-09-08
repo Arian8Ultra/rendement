@@ -37,7 +37,8 @@ model Blog {
   id         String   @id @default(cuid())
   title      String
   body       String
+  coverImage String
   createdAt  DateTime @default(now())
-  categoryId String
-  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id])
 }
