@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default async function EmailsPage() {
   const mails = await prisma.mail.findMany();
   return (
-    <div>
+    <div className="w-full">
       {/* a table of mails */}
       <table className="w-full bg-white shadow-md my-6 rounded-xl overflow-hidden">
         <thead>

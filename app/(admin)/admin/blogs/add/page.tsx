@@ -36,13 +36,7 @@ export default function AddBlogPagePage() {
       alert("Blog could not be added");
     }
   };
-
-  const saveImage = async (file: File) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    const res = await axios.post("/api/upload/image", formData);
-    return res.data;
-  }
+  
   return (
     <div className="flex flex-col gap-3 w-full">
       <div className="grid grid-cols-2 gap-5 md:w-1/2 mx-auto w-full">

@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Navbar from "../../components/Navbar";
 import "./globals.css";
 import AdminSideBar from "@/components/Admin/AdminSideBar";
+import UploadImageModal from "@/components/Admin/UploadImageModal";
+import ImageModal from "@/components/Admin/ImageModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +25,9 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <div className='relative flex w-full h-screen bg-gray-100'>
             <AdminSideBar />
-            <div className="w-full flex-1 p-4">
+            <UploadImageModal />
+            <ImageModal />
+            <div className="w-full flex-1 p-4 overflow-auto">
             {children}
             </div>
           </div>

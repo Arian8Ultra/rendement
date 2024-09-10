@@ -1,21 +1,23 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-export async function GET(request: Request) {}
+import { revalidatePath } from "next/cache";
+import fs from "node:fs/promises";
 
-export async function HEAD(request: Request) {}
+export async function POST(req: Request) {
+  try {
+    const formData = await req.formData();
 
-export async function POST(request: Request) {
-  const formData = await request.formData();
-  const file = formData.get("file") as File;
-  if (!file) {
-    return new Response("No file uploaded", { status: 400 });
+    const file = formData.get("file") as File;
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = new Uint8Array(arrayBuffer);
+    await fs.writeFile(`./public/uploads/${file.name}`, buffer);
+
+    revalidatePath("/admin/gallery");
+
+    const path = `/public/uploads/${file.name}`
+
+    return NextResponse.json({ status: "success",path });
+  } catch (e) {
+    console.error(e);
+    return NextResponse.json({ status: "fail", error: e });
   }
-
-  return new Response(file, { status: 200 });
 }
-
-export async function PUT(request: Request) {}
-
-export async function DELETE(request: Request) {}
-
-export async function PATCH(request: Request) {}

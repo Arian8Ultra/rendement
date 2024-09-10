@@ -7,10 +7,11 @@ export async function GET(request: Request) {}
 export async function HEAD(request: Request) {}
 
 export async function POST(request: Request) {
-  const { title, body,categoryId } = (await request.json()) as {
+  const { title, body,categoryId,coverImage } = (await request.json()) as {
     title: string;
     body: string;
     categoryId: string;
+    coverImage: string;
   };
 
   try {
@@ -19,6 +20,7 @@ export async function POST(request: Request) {
         title,
         body,
         categoryId,
+        coverImage,
       },
     });
     return new Response(
