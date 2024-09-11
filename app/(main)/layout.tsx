@@ -27,10 +27,12 @@ export default async function RootLayout({
     <html lang='en'>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <div className='relative'>
+          <div className='relative duration-300'>
             {/* if a link is hoverd scale it to 150 */}
             <Navbar Categories={categories} />
+            <div className="duration-300">
             {children}
+            </div>
 
             <div className='fixed bottom-0 w-full bg-black bg-opacity-70 z-10 p-2 backdrop-blur-md text-white text-center'>
               🚧Site is under development

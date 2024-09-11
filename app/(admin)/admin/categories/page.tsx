@@ -11,7 +11,14 @@ export default async function CategoriesPagePage() {
   return (
     <div>
       <div className="grid grid-cols-3 w-full items-end">
-        <AddCategoryForm />
+        <Link href="/admin/categories/add">
+          <button className="bg-green-500 text-white p-4 rounded-xl flex items-center justify-center gap-4">
+            <div className="text">
+              Add Category
+            </div>
+            <BiPlus />
+          </button>
+        </Link>
         <h1 className="text-5xl text-center p-10">Categories</h1>
         <div className=""></div>
       </div>

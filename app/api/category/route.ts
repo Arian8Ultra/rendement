@@ -5,7 +5,7 @@ export async function GET(request: Request) {}
 export async function HEAD(request: Request) {}
 
 export async function POST(req: Request) {
-  const { name, enName } = await req.json();
+  const { id, name, enName,layout } = await req.json();
   console.log(name);
 
   const prisma = new PrismaClient();
@@ -14,6 +14,8 @@ export async function POST(req: Request) {
       data: {
         name,
         enName,
+        layout:layout,
+        mobileLayout:layout,
       },
     });
     return new Response(
@@ -41,7 +43,7 @@ export async function POST(req: Request) {
 }
 
 export async function PUT(request: Request) {
-  const { id, name, enName } = await request.json();
+  const { id, name, enName,layout } = await request.json();
   const prisma = new PrismaClient();
   try {
     const category = await prisma.category.update({
@@ -51,6 +53,8 @@ export async function PUT(request: Request) {
       data: {
         name,
         enName,
+        layout:layout,
+        mobileLayout:layout,
       },
     });
     return new Response(

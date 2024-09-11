@@ -1,5 +1,6 @@
 "use client";
 import { Modal } from "@mui/material";
+import Image from "next/image";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import { TbOctagonPlus } from "react-icons/tb";
@@ -10,18 +11,22 @@ const UploadImageModal = () => {
   const router = useRouter();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const Upload = async () => {
+  const Upload = () => {
     const formData = new FormData();
     formData.append("file", file as File);
-    const res = await fetch("http://localhost:3000/api/upload/image", {
+    const res = fetch("/api/upload/image", {
       method: "POST",
       body: formData,
-    });
-    const data = await res.json();
-    if(data){
-        setFile(undefined)
-    }
-    console.log(data);
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setFile(undefined);
+          router.push("/admin/gallery");
+          router.refresh();
+        }
+        console.log(data);
+      });
   };
   return (
     <Modal
@@ -33,10 +38,12 @@ const UploadImageModal = () => {
        flex-col gap-5"
       >
         {file ? (
-          <img
+          <Image
             src={URL.createObjectURL(file)}
             alt=""
-            className="rounded-xl"
+            width={200}
+            height={200}
+            className="rounded-xl aspect-video"
             onClick={() => inputRef.current?.click()}
           />
         ) : (
@@ -59,11 +66,9 @@ const UploadImageModal = () => {
         )}
 
         <button
-          onClick={() => {
+          onClick={async () => {
             if (file) {
               Upload();
-              router.push("/admin/gallery");
-              router.refresh();
             }
           }}
           className="bg-green-500 text-white p-2 rounded-xl"

@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -30,6 +30,8 @@ model Category {
   id   String @id @default(cuid())
   name String
   enName String
+  layout String
+  mobileLayout String
   Blog Blog[]
 }
 

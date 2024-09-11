@@ -9,6 +9,7 @@ const AddCategoryForm = () => {
       onSubmit={(e) => {
         e.preventDefault();
         const title = e.currentTarget.enName.value;
+        const layout = e.currentTarget.layout.value;
         console.log(title);
 
         const requestOption = {
@@ -16,7 +17,12 @@ const AddCategoryForm = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: title,
-            enName: title?.toLowerCase()?.replace(/\s/g, "-")?.replace(/[^a-zA-Z0-9-]/g, ""),
+            enName: title
+              ?.toLowerCase()
+              ?.replace(/\s/g, "-")
+              ?.replace(/[^a-zA-Z0-9-]/g, ""),
+
+              layout:layout
           }),
         };
 
@@ -31,22 +37,40 @@ const AddCategoryForm = () => {
           })
           .catch((error) => {
             alert("Category could not be added" + error);
-          })
+          });
       }}
-      className="flex gap-4 items-center"
+      className="flex flex-col gap-4 items-center"
     >
-      <input
-        type="text"
-        name="enName"
-        id="enName"
-        required
-        className="outline rounded-lg outline-1 outline-gray-400 p-2 placeholder:text-gray-400"
-        placeholder="Title"
-      />
+      <div className="flex flex-col gap-4">
+        <label htmlFor="enName">Title</label>
+        <input
+          type="text"
+          name="enName"
+          id="enName"
+          required
+          className="outline rounded-lg outline-1 outline-gray-400 p-2 placeholder:text-gray-400"
+          placeholder="Title"
+        />
+      </div>
+
+
+      <div className="flex flex-col gap-5 w-full">
+        <label htmlFor="layout">Layout</label>
+        <select
+          name="layout"
+          id="layout"
+          required
+          className="outline rounded-lg outline-1 outline-gray-400 p-2 placeholder:text-gray-400"
+        >
+          <option value="row">Row</option>
+          <option value="grid">Grid</option>
+        </select>
+      </div>
       <button
         type="submit"
-        className="bg-green-500 text-white p-2 rounded-full hover:bg-opacity-70"
+        className="bg-green-500 text-white p-2 rounded-2xl hover:bg-opacity-70 flex gap-3 w-full items-center justify-center"
       >
+        Add
         <MdAdd className="text-2xl" />
       </button>
     </form>
