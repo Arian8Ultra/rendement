@@ -1,11 +1,13 @@
 import AddCategoryForm from "@/components/Admin/AddCategoryForm";
 import DeleteBlogButton from "@/components/Admin/DeleteBlogButton";
 import DeleteCategoryButton from "@/components/Admin/DeleteCategoryButton";
+import prisma from "@/prisma/prisma";
 import { Blog, Category, PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import { BiPlus } from "react-icons/bi";
 
-const prisma = new PrismaClient();
+export const dynamic = 'force-dynamic'
+
 export default async function CategoriesPagePage() {
   const blogs = (await prisma.blog.findMany()) as Blog[];
   return (

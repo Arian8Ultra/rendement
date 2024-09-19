@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import React from "react";
-const prisma = new PrismaClient();
+import prisma from "@/prisma/prisma";
+export const dynamic = 'force-dynamic'
 
 export default async function EmailsPage() {
   const mails = await prisma.mail.findMany();

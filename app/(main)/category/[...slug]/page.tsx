@@ -1,8 +1,12 @@
-import { useRouter } from "next/navigation";
-import { Blog, Category, PrismaClient } from "@prisma/client";
+import prisma from "@/prisma/prisma";
+import { Blog, Category } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
-const prisma = new PrismaClient();
+
+
+export const dynamic = 'force-dynamic'
+
+
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const blogs = (await prisma.blog.findMany({
     where: {

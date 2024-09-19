@@ -1,8 +1,10 @@
-import { Blog, PrismaClient } from "@prisma/client";
+import prisma from "@/prisma/prisma";
+import { Blog } from "@prisma/client";
 import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 
-const prisma = new PrismaClient();
+export const dynamic = 'force-dynamic'
+
 
 type Props = {
   params: { id: string };

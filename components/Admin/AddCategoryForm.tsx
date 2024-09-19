@@ -32,8 +32,8 @@ const AddCategoryForm = () => {
         fetch("/api/category", requestOption)
           .then((res) => res.json())
           .then((data) => {
-            alert(data.message);
-            router.refresh();
+            console.log(data);
+            router.push("/admin/categories");
           })
           .catch((error) => {
             alert("Category could not be added" + error);

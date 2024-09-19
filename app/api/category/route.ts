@@ -1,14 +1,11 @@
-import { PrismaClient } from "@prisma/client";
-
+import prisma from "@/prisma/prisma";
 export async function GET(request: Request) {}
 
 export async function HEAD(request: Request) {}
 
 export async function POST(req: Request) {
-  const { id, name, enName,layout } = await req.json();
+  const { name, enName,layout } = await req.json();
   console.log(name);
-
-  const prisma = new PrismaClient();
   try {
     const category = await prisma.category.create({
       data: {
@@ -18,6 +15,7 @@ export async function POST(req: Request) {
         mobileLayout:layout,
       },
     });
+    console.log(category);
     return new Response(
       JSON.stringify({ message: "Category added successfully" }),
       {
@@ -44,7 +42,6 @@ export async function POST(req: Request) {
 
 export async function PUT(request: Request) {
   const { id, name, enName,layout } = await request.json();
-  const prisma = new PrismaClient();
   try {
     const category = await prisma.category.update({
       where: {
@@ -83,7 +80,6 @@ export async function PUT(request: Request) {
 
 export async function DELETE(request: Request) {
   const { id } = await request.json();
-  const prisma = new PrismaClient();
   try {
     // update blogs that have this category
     const blogs = await prisma.blog.findMany({

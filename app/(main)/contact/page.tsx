@@ -1,13 +1,10 @@
 import UserContactUsForm from "@/components/UserContactUsForm/UserContactUsForm";
-import { PrismaClient } from "@prisma/client";
 import { Metadata } from "next";
 import Image from "next/image";
-import React from "react";
 import { BiPhoneCall } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { MdEmail } from "react-icons/md";
-const prisma = new PrismaClient();
-
+import prisma from "@/prisma/prisma";
 
 export const metadata: Metadata = {
   title: "Contact Us",

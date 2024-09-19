@@ -1,6 +1,8 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import { NextRequest } from "next/server";
+import prisma from "@/prisma/prisma";
 
+export const dynamic = 'force-dynamic'
 interface MailRequest {
   body: string;
   subject: string;
@@ -8,7 +10,6 @@ interface MailRequest {
   userPhone: string;
 }
 
-const prisma = new PrismaClient();
 export const POST = (req: Request) => {
   try {
     const { body, subject, userEmail, userPhone } = req.body as unknown as MailRequest;

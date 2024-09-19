@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.651.1",
     "@ckeditor/ckeditor5-react": "^9.1.0",
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.4",
@@ -29,6 +30,7 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@prisma/nextjs-monorepo-workaround-plugin": "^5.19.1",
     "@svgr/webpack": "^8.1.0",
     "@types/multer": "^1.4.12",
     "@types/node": "^20",

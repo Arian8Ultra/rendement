@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import Image from "next/image";
 import Link from "next/link";
+
 export default async function GalleryPage() {
   // get files from uploads folder
   const images = await fs.readdir("./public/uploads/");

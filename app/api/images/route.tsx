@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
-
+export const dynamic = 'force-dynamic'
 export async function GET(request: Request) {
-  const images = await fs.readdir("./public/uploads/");
+  const images = await fs.readdir("./uploads/");
 
   return new Response(JSON.stringify(images), {
     headers: {

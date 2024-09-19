@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import fs from "node:fs/promises";
-
+export const dynamic = 'force-dynamic'
 export async function POST(req: Request) {
   try {
     const formData = await req.formData();
@@ -9,11 +9,11 @@ export async function POST(req: Request) {
     const file = formData.get("file") as File;
     const arrayBuffer = await file.arrayBuffer();
     const buffer = new Uint8Array(arrayBuffer);
-    await fs.writeFile(`./public/uploads/${file.name}`, buffer);
+    await fs.writeFile(`public/uploads/${file.name}`, buffer);
 
     revalidatePath("/admin/gallery");
 
-    const path = `/public/uploads/${file.name}`
+    const path = `/uploads/${file.name}`
 
     return NextResponse.json({ status: "success",path });
   } catch (e) {

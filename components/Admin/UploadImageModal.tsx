@@ -43,7 +43,7 @@ const UploadImageModal = () => {
             alt=""
             width={200}
             height={200}
-            className="rounded-xl aspect-video"
+            className="rounded-xl aspect-video w-full"
             onClick={() => inputRef.current?.click()}
           />
         ) : (

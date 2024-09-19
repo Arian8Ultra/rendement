@@ -9,8 +9,9 @@ import { RiInformationFill, RiTeamFill } from "react-icons/ri";
 import { TbTriangleFilled } from "react-icons/tb";
 import "./globals.css";
 import Navbar from "../../components/Navbar";
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "@/prisma/prisma";
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: "Create Next App",

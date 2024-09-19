@@ -1,6 +1,6 @@
 import { Blog, PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/prisma/prisma";
+export const dynamic = 'force-dynamic'
 export async function GET(request: Request) {}
 
 export async function HEAD(request: Request) {}
